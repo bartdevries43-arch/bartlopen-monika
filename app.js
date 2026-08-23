@@ -44,7 +44,7 @@ const ZONES = [
   { key: "herstel",  name: "Herstel",          pace: "7:45-8:15", info: "RPE 2 · bewust makkelijk" },
   { key: "duur",     name: "Rustige duurloop", pace: "7:10-7:40",    info: "RPE 3-4 · praattempo" },
   { key: "lang",     name: "Lange duurloop",   pace: "7:00-7:30",    info: "RPE 4 · de langste van je week" },
-  { key: "doel",     name: "Wedstrijdtempo",   pace: "6:35-6:55",    info: "RPE 6-7 · 1:40 op 15 km" },
+  { key: "doel",     name: "Wedstrijdtempo",   pace: "6:35-6:45",    info: "RPE 6-7 · 1:40 op 15 km" },
   { key: "tempo",    name: "Drempeltempo",     pace: "6:10-6:30",   info: "RPE 7-8 · 2 of 3 woorden" },
   { key: "interval", name: "Interval",         pace: "5:50-6:10",     info: "RPE 8-9 · kort en snel" },
 ];
@@ -106,7 +106,7 @@ const WHY = {
   herstel:  "Heel rustig lopen houdt je los en laat het bloed stromen zonder nieuwe belasting. Juist op deze dagen komt de winst van je zwaardere trainingen binnen. En als je krachttraining in je benen zit, is dit precies de juiste training.",
   duur:     "Rustige duurlopen op praattempo bouwen je aerobe motor: een sterker hart, meer haarvaten en betere vetverbranding. Dit is het fundament onder je halve marathon en het hoort het grootste deel van je week te zijn.",
   lang:     "De lange duurloop is jouw belangrijkste training. Je bouwt uithoudingsvermogen op, je lichaam leert efficiënter met brandstof omgaan, en je hoofd leert dat lange afstanden normaal zijn. Rustig tempo, gewoon volhouden.",
-  doel:     "Op wedstrijdtempo lopen leert je gevoel precies wat 6:35-6:55 per km betekent. Zo weet je op de dag zelf hoe je moet starten en verdelen, in plaats van te gokken en halverwege in te storten.",
+  doel:     "Op wedstrijdtempo lopen leert je gevoel precies wat 6:35-6:45 per km betekent. Zo weet je op de dag zelf hoe je moet starten en verdelen, in plaats van te gokken en halverwege in te storten.",
   tempo:    "Drempeltempo verhoogt de snelheid waarbij je nog net in balans blijft. Als je drempel stijgt, voelt je wedstrijdtempo op den duur een stuk makkelijker aan.",
   interval: "Korte snelle stukken verbeteren je loopeconomie: je gebruikt minder zuurstof bij hetzelfde tempo. We houden ze kort en met ruime pauzes, want je hebt je energie ook nodig voor je krachttraining.",
 };
@@ -285,7 +285,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op wedstrijdtempo", goal: "Kennismaken met je Bruggenloop-tempo", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:55/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -340,7 +340,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op wedstrijdtempo", goal: "Tempo scherp krijgen", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:55/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -378,7 +378,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 7, kind: "Wedstrijdtempo", title: "2x 2 km op wedstrijdtempo", goal: "Laatste keer voelen hoe het tempo zit", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 2 km op wedstrijdtempo 6:35-6:55/km, met 3 min joggen ertussen",
+      "2x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -402,7 +402,7 @@ const PLAN = [
       "Eet 2 tot 3 uur vooraf iets vertrouwds, niets nieuws",
       "Ruim op tijd aanwezig, dan blijft het ontspannen",
       "Start bewust rustig op 6:50 tot 7:00/km, de eerste kilometers voelen te makkelijk",
-      "Daarna gelijkmatig op 6:35-6:55/km, dat is 1:40 over de streep",
+      "Daarna gelijkmatig op 6:35-6:45/km, dat is 1:40 over de streep",
       "De bruggen zijn de enige klim: rustiger omhoog, laat lopen omlaag",
       "Laatste 3 km: hier haal je 'm binnen, strijder 🧡",
     ] }),
@@ -523,7 +523,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op tempo", goal: "Tempogevoel terughalen", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:55/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -578,7 +578,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 10, kind: "Wedstrijdtempo", title: "3x 3 km op tempo", goal: "Grotere blokken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 3 km op wedstrijdtempo 6:35-6:55/km, met 4 min joggen ertussen",
+      "3x 3 km op wedstrijdtempo 6:35-6:45/km, met 4 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -616,7 +616,7 @@ const PLAN = [
     ] }),
     d2({ zone: "doel", km: 8, kind: "Wedstrijdtempo", title: "3x 2 km op tempo", goal: "Scherp maken, niet moe maken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:55/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
@@ -682,7 +682,7 @@ const INFO = [
   ]},
   { icon: "🏁", title: "De Bruggenloop, 15 km", items: [
     "13 december 2026. Vijftien kilometer over de Rotterdamse bruggen.",
-    "Voor 1:40 loop je 6:35-6:55 per km. Dat oefen je in week 10, 13, 15 en 16.",
+    "Voor 1:40 loop je 6:35-6:45 per km. Dat oefen je in week 10, 13, 15 en 16.",
     "Start bewust rustiger dan je wilt, rond 6:50 tot 7:00 per km. Iedereen vertrekt te hard.",
     "De bruggen zijn de enige echte klim. Rustiger omhoog, en laat je gewoon lopen omlaag.",
     "December betekent kou. Kleed je in laagjes en trek iets uit wat je bij de start kunt weggooien.",
@@ -702,7 +702,7 @@ const INFO = [
     "Eet na een lange loop binnen een uur iets met koolhydraten en eiwit. Dat scheelt echt in je herstel.",
   ]},
   { icon: "🌙", title: "Donker en koud lopen", items: [
-    "Je hele opbouw valt in het donkere seizoen. Draag iets fels of reflecterends.",
+    "Een groot deel van je opbouw valt in het donkere seizoen. Draag iets fels of reflecterends.",
     "Een klein hoofdlampje maakt een groot verschil op onverlichte stukken.",
     "Kleed je in laagjes en start liever een tikje kouder. Na 10 minuten warm je flink op.",
     "IJzel of spekgladde stoep? Niet lopen. Verzet de training of pak de loopband.",
