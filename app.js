@@ -20,7 +20,7 @@ const CONFIG = {
   appName:    "Op naar 21,1K",
   runner:     "Monika",
   goal:       "Je eerste halve marathon",
-  startDate:  new Date(2026, 7, 24),
+  startDate:  new Date(2026, 7, 31),
   storeKey:   "monika-hm.log.v1",
   coachName:  "Coach Bart",
   coachHandle:"@bartlopen",
@@ -33,7 +33,7 @@ const RUNNER = CONFIG.runner;
 const GOAL = CONFIG.goal;
 const START_DATE = CONFIG.startDate;
 const STORE_KEY = CONFIG.storeKey;
-const TOTAL_WEEKS = 29;
+const TOTAL_WEEKS = 28;
 const UNIT = CONFIG.unit === "min" ? "min" : "km";
 const UNIT_LABEL = UNIT;
 const ZONE_SUFFIX = CONFIG.zonePaceSuffix ?? "/km";
@@ -41,12 +41,12 @@ const COACH_INITIAL = (CONFIG.coachName.replace(/^coach\s+/i, "")[0] || "C").toU
 
 /* --- Tempozones (richttempo's, we ijken ze na je eerste weken) ------- */
 const ZONES = [
-  { key: "herstel",  name: "Herstel",          pace: "7:45-8:15", info: "RPE 2 · bewust makkelijk" },
-  { key: "duur",     name: "Rustige duurloop", pace: "7:10-7:40",    info: "RPE 3-4 · praattempo" },
-  { key: "lang",     name: "Lange duurloop",   pace: "7:00-7:30",    info: "RPE 4 · de langste van je week" },
-  { key: "doel",     name: "Wedstrijdtempo",   pace: "6:35-6:45",    info: "RPE 6-7 · 1:40 op 15 km" },
-  { key: "tempo",    name: "Drempeltempo",     pace: "6:10-6:30",   info: "RPE 7-8 · 2 of 3 woorden" },
-  { key: "interval", name: "Interval",         pace: "5:50-6:10",     info: "RPE 8-9 · kort en snel" },
+  { key: "herstel",  name: "Herstel",          pace: "7:45–8:15", info: "RPE 2 · bewust makkelijk" },
+  { key: "duur",     name: "Rustige duurloop", pace: "7:10–7:40",    info: "RPE 3-4 · praattempo" },
+  { key: "lang",     name: "Lange duurloop",   pace: "7:00–7:30",    info: "RPE 4 · de langste van je week" },
+  { key: "doel",     name: "Wedstrijdtempo",   pace: "6:35–6:45",    info: "RPE 6-7 · 1:40 op 15 km" },
+  { key: "tempo",    name: "Drempeltempo",     pace: "6:10–6:30",   info: "RPE 7-8 · 2 of 3 woorden" },
+  { key: "interval", name: "Interval",         pace: "5:50–6:10",     info: "RPE 8-9 · kort en snel" },
 ];
 const zoneByKey = Object.fromEntries(ZONES.map((z) => [z.key, z]));
 
@@ -106,7 +106,7 @@ const WHY = {
   herstel:  "Heel rustig lopen houdt je los en laat het bloed stromen zonder nieuwe belasting. Juist op deze dagen komt de winst van je zwaardere trainingen binnen. En als je krachttraining in je benen zit, is dit precies de juiste training.",
   duur:     "Rustige duurlopen op praattempo bouwen je aerobe motor: een sterker hart, meer haarvaten en betere vetverbranding. Dit is het fundament onder je halve marathon en het hoort het grootste deel van je week te zijn.",
   lang:     "De lange duurloop is jouw belangrijkste training. Je bouwt uithoudingsvermogen op, je lichaam leert efficiënter met brandstof omgaan, en je hoofd leert dat lange afstanden normaal zijn. Rustig tempo, gewoon volhouden.",
-  doel:     "Op wedstrijdtempo lopen leert je gevoel precies wat 6:35-6:45 per km betekent. Zo weet je op de dag zelf hoe je moet starten en verdelen, in plaats van te gokken en halverwege in te storten.",
+  doel:     "Op wedstrijdtempo lopen leert je gevoel precies wat 6:35–6:45 per km betekent. Zo weet je op de dag zelf hoe je moet starten en verdelen, in plaats van te gokken en halverwege in te storten.",
   tempo:    "Drempeltempo verhoogt de snelheid waarbij je nog net in balans blijft. Als je drempel stijgt, voelt je wedstrijdtempo op den duur een stuk makkelijker aan.",
   interval: "Korte snelle stukken verbeteren je loopeconomie: je gebruikt minder zuurstof bij hetzelfde tempo. We houden ze kort en met ruime pauzes, want je hebt je energie ook nodig voor je krachttraining.",
 };
@@ -119,282 +119,265 @@ const zo = (o) => ({ day: "zo", dayLabel: "Zondag",                 ...o });
 
 /* --- Het schema ------------------------------------------------------- */
 const PLAN = [
-  { week: 1, dates: "24–30 aug", phase: "Fase 1 · Basis verbreden", sessions: [
+  { week: 1, dates: "31 aug–6 sep", phase: "Fase 1 · Basis verbreden", sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Rustig beginnen", goal: "Je lichaam laten wennen aan het ritme", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Nog een rustige", goal: "Twee keer rustig, dat is genoeg deze week", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d3({ zone: "lang", km: 10, kind: "Lange duurloop", title: "10 km, je vertrouwde afstand", goal: "Waar je nu al staat", blocks: [
-      "10 km op 7:00-7:30/km",
+      "10 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 2, dates: "31 aug–6 sep", phase: "Fase 1 · Basis verbreden", sessions: [
+  { week: 2, dates: "7–13 sep", phase: "Fase 1 · Basis verbreden", sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Ontspannen 6 km", goal: "Rustig blijft rustig", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Met 4 versnellingen", goal: "Even soepele benen maken", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Daarna 4x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 11, kind: "Lange duurloop", title: "11 km", goal: "Eén kilometer verder dan je gewend bent", blocks: [
-      "11 km op 7:00-7:30/km",
+      "11 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 3, dates: "7–13 sep", phase: "Fase 1 · Basis verbreden", sessions: [
+  { week: 3, dates: "14–20 sep", phase: "Fase 1 · Basis verbreden", sessions: [
     d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "7 km rustig", goal: "Basis groeit mee", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "Met 5 versnellingen", goal: "Soepel blijven", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Daarna 5x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "12 km", goal: "Nieuwe langste", blocks: [
-      "12 km op 7:00-7:30/km",
+      "12 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 4, dates: "14–20 sep", phase: "Fase 1 · Basis verbreden", recovery: true, sessions: [
+  { week: 4, dates: "21–27 sep", phase: "Fase 1 · Basis verbreden", recovery: true, sessions: [
     d1({ zone: "herstel", km: 5, kind: "Herstel", title: "Rustige week", goal: "Elke vierde week is lichter", blocks: [
-      "5 km heel rustig op 7:45-8:15/km",
+      "5 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Kort en soepel", goal: "Fris blijven", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d3({ zone: "lang", km: 9, kind: "Lange duurloop", title: "Terugvalweek", goal: "Nu terugschakelen, straks sterker", blocks: [
-      "9 km op 7:00-7:30/km",
+      "9 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 5, dates: "21–27 sep", phase: "Fase 1 · Basis verbreden", sessions: [
+  { week: 5, dates: "28 sep–4 okt", phase: "Fase 1 · Basis verbreden", sessions: [
     d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "Weer opbouwen", goal: "Fris na de rustige week", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
-    d2({ zone: "tempo", km: 7, kind: "Drempeltempo", title: "3x 5 min drempel", goal: "Je eerste echte tempotraining", blocks: [
+    d2({ zone: "tempo", km: 8, kind: "Drempeltempo", title: "4x 5 min drempel", goal: "Je eerste echte tempotraining", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 5 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
+      "4x 5 min op 6:10–6:30/km, met 3 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
-      "1 km uitlopen",
-    ] }),
-    d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "12 km", goal: "Rustig, het tempowerk zat al in slot 2", blocks: [
-      "12 km op 7:00-7:30/km",
-      "Rustig starten, gelijkmatig blijven",
-      "Laatste kilometer lekker uitlopen",
-    ] }),
-  ]},
-  { week: 6, dates: "28 sep–4 okt", phase: "Fase 1 · Basis verbreden", sessions: [
-    d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "7 km rustig", goal: "Onderhoud", blocks: [
-      "7 km op 7:10-7:40/km",
-      "Praattempo: je kunt een hele zin uitspreken",
-      "Rustig uitlopen en even losmaken",
-    ] }),
-    d2({ zone: "tempo", km: 8, kind: "Drempeltempo", title: "4x 5 min drempel", goal: "Een blok erbij", blocks: [
-      "1,5 km inlopen op 7:30/km",
-      "4x 5 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
-      "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
+      "Voelt het te veel? Doe er dan 3 en bouw volgende keer uit.",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 13, kind: "Lange duurloop", title: "13 km", goal: "Fase 1 afsluiten", blocks: [
-      "13 km op 7:00-7:30/km",
+      "13 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 7, dates: "5–11 okt", phase: "Fase 2 · Op weg naar 15 km", sessions: [
+  { week: 6, dates: "5–11 okt", phase: "Fase 2 · Op weg naar 15 km", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Volume vasthouden", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 8, kind: "Drempeltempo", title: "2x 10 min drempel", goal: "Langere blokken, zelfde tempo", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 10 min op 6:10-6:30/km, met 4 min rustig joggen ertussen",
+      "2x 10 min op 6:10–6:30/km, met 4 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 13, kind: "Lange duurloop", title: "13 km", goal: "Geduldig verder", blocks: [
-      "13 km op 7:00-7:30/km",
+      "13 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 8, dates: "12–18 okt", phase: "Fase 2 · Op weg naar 15 km", recovery: true, sessions: [
+  { week: 7, dates: "12–18 okt", phase: "Fase 2 · Op weg naar 15 km", recovery: true, sessions: [
     d1({ zone: "herstel", km: 5, kind: "Herstel", title: "Rustige week", goal: "Opladen", blocks: [
-      "5 km heel rustig op 7:45-8:15/km",
+      "5 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Met 4 versnellingen", goal: "Benen wakker houden", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Daarna 4x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 10, kind: "Lange duurloop", title: "Terugvalweek", goal: "Gas terug", blocks: [
-      "10 km op 7:00-7:30/km",
+      "10 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 9, dates: "19–25 okt", phase: "Fase 2 · Op weg naar 15 km", sessions: [
+  { week: 8, dates: "19–25 okt", phase: "Fase 2 · Op weg naar 15 km", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Basis op peil", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 9, kind: "Drempeltempo", title: "3x 8 min drempel", goal: "Stevig blok", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 8 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
+      "3x 8 min op 6:10–6:30/km, met 3 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 14, kind: "Lange duurloop", title: "14 km", goal: "De 15 komt in zicht", blocks: [
-      "14 km op 7:00-7:30/km",
+      "14 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 10, dates: "26 okt–1 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
+  { week: 9, dates: "26 okt–1 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Rustig herstellen", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op wedstrijdtempo", goal: "Kennismaken met je Bruggenloop-tempo", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35–6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 15, kind: "Mijlpaal", title: "🎉 Je eerste 15 km", goal: "De afstand van de Bruggenloop, nu al", blocks: [
-      "15 km op 7:00-7:30/km",
+      "15 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 11, dates: "2–8 nov", phase: "Fase 2 · Op weg naar 15 km", recovery: true, sessions: [
+  { week: 10, dates: "2–8 nov", phase: "Fase 2 · Op weg naar 15 km", recovery: true, sessions: [
     d1({ zone: "herstel", km: 6, kind: "Herstel", title: "Rustige week", goal: "Je hebt 15 km gelopen, geniet hiervan", blocks: [
-      "6 km heel rustig op 7:45-8:15/km",
+      "6 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Met 5 versnellingen", goal: "Soepel", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Daarna 5x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "Terugvalweek", goal: "Bijtanken", blocks: [
-      "12 km op 7:00-7:30/km",
+      "12 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 12, dates: "9–15 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
+  { week: 11, dates: "9–15 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Onderhoud", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 10, kind: "Drempeltempo", title: "2x 15 min drempel", goal: "Je langste drempelblokken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 15 min op 6:10-6:30/km, met 5 min rustig joggen ertussen",
+      "2x 15 min op 6:10–6:30/km, met 5 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 16, kind: "Lange duurloop", title: "16 km", goal: "Verder dan de Bruggenloop", blocks: [
-      "16 km op 7:00-7:30/km",
+      "16 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 13, dates: "16–22 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
+  { week: 12, dates: "16–22 nov", phase: "Fase 2 · Op weg naar 15 km", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Rustig", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op wedstrijdtempo", goal: "Tempo scherp krijgen", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35–6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 14, kind: "Lange duurloop", title: "14 km", goal: "Vanaf nu bouwen we af naar de race", blocks: [
-      "14 km op 7:00-7:30/km",
+      "14 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 14, dates: "23–29 nov", phase: "Fase 3 · Scherp naar de Bruggenloop", sessions: [
+  { week: 13, dates: "23–29 nov", phase: "Fase 3 · Scherp naar de Bruggenloop", sessions: [
     d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "7 km rustig", goal: "Afbouwen begint", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 8, kind: "Drempeltempo", title: "4x 4 min drempel", goal: "Kort en scherp", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "4x 4 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
+      "4x 4 min op 6:10–6:30/km, met 3 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "12 km", goal: "Benen sparen", blocks: [
-      "12 km op 7:00-7:30/km",
+      "12 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 15, dates: "30 nov–6 dec", phase: "Fase 3 · Scherp naar de Bruggenloop", taper: true, sessions: [
+  { week: 14, dates: "30 nov–6 dec", phase: "Fase 3 · Scherp naar de Bruggenloop", taper: true, sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "6 km rustig", goal: "Energie opsparen", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 7, kind: "Wedstrijdtempo", title: "2x 2 km op wedstrijdtempo", goal: "Laatste keer voelen hoe het tempo zit", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
+      "2x 2 km op wedstrijdtempo 6:35–6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 10, kind: "Lange duurloop", title: "10 km, laatste lange", goal: "Fris naar de startlijn", blocks: [
-      "10 km op 7:00-7:30/km",
+      "10 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 16, dates: "7–13 dec", phase: "Fase 3 · Scherp naar de Bruggenloop", tuneup: true, raceLabel: "🏁 Bruggenloop · 15 km", tuneupTag: "Bruggenloop", sessions: [
+  { week: 15, dates: "7–13 dec", phase: "Fase 3 · Scherp naar de Bruggenloop", tuneup: true, raceLabel: "🏁 Bruggenloop · 15 km", tuneupTag: "Bruggenloop", sessions: [
     d1({ zone: "herstel", km: 5, kind: "Herstel", title: "Losmaken", goal: "Kort en rustig, niets forceren", blocks: [
-      "5 km heel rustig op 7:45-8:15/km",
+      "5 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "herstel", km: 4, kind: "Herstel", title: "Kort met 3 versnellingen", goal: "Scherp maar uitgerust", blocks: [
-      "4 km heel rustig op 7:45-8:15/km",
+      "4 km heel rustig op 7:45–8:15/km",
       "3x 20 sec versnellen, met ruim wandelen ertussen",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
@@ -402,239 +385,239 @@ const PLAN = [
       "Eet 2 tot 3 uur vooraf iets vertrouwds, niets nieuws",
       "Ruim op tijd aanwezig, dan blijft het ontspannen",
       "Start bewust rustig op 6:50 tot 7:00/km, de eerste kilometers voelen te makkelijk",
-      "Daarna gelijkmatig op 6:35-6:45/km, dat is 1:40 over de streep",
+      "Daarna gelijkmatig op 6:35–6:45/km, dat is 1:40 over de streep",
       "De bruggen zijn de enige klim: rustiger omhoog, laat lopen omlaag",
       "Laatste 3 km: hier haal je 'm binnen, strijder 🧡",
     ] }),
   ]},
-  { week: 17, dates: "14–20 dec", phase: "Fase 4 · Herstel en feestdagen", recovery: true, sessions: [
+  { week: 16, dates: "14–20 dec", phase: "Fase 4 · Herstel en feestdagen", recovery: true, sessions: [
     d1({ zone: "herstel", km: 5, kind: "Herstel", title: "Bijkomen van de race", goal: "Je hebt 15 km gelopen, rust is verdiend", blocks: [
-      "5 km heel rustig op 7:45-8:15/km",
+      "5 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Soepel", goal: "Alles los", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d3({ zone: "lang", km: 8, kind: "Lange duurloop", title: "8 km rustig", goal: "Rustig weer opstarten", blocks: [
-      "8 km op 7:00-7:30/km",
+      "8 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 18, dates: "21–27 dec", phase: "Fase 4 · Herstel en feestdagen", recovery: true, sessions: [
+  { week: 17, dates: "21–27 dec", phase: "Fase 4 · Herstel en feestdagen", recovery: true, sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Kerstloopje", goal: "Even naar buiten tussen de drukte", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "Met 5 versnellingen", goal: "Geen druk deze week", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Daarna 5x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 11, kind: "Lange duurloop", title: "11 km", goal: "Komt het niet uit? Schuif gerust een dag", blocks: [
-      "11 km op 7:00-7:30/km",
+      "11 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 19, dates: "28 dec–3 jan", phase: "Fase 4 · Herstel en feestdagen", sessions: [
+  { week: 18, dates: "28 dec–3 jan", phase: "Fase 4 · Herstel en feestdagen", sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Het jaar uitlopen", goal: "Ontspannen afsluiten", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 7, kind: "Drempeltempo", title: "3x 5 min drempel", goal: "Voorzichtig weer wat tempo", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 5 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
+      "3x 5 min op 6:10–6:30/km, met 3 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "Eerste lange van het jaar", goal: "Nieuw doel, nieuwe energie", blocks: [
-      "12 km op 7:00-7:30/km",
+      "12 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 20, dates: "4–10 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 19, dates: "4–10 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "7 km rustig", goal: "Nu op naar de halve", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 8, kind: "Drempeltempo", title: "4x 5 min drempel", goal: "Weer opbouwen", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "4x 5 min op 6:10-6:30/km, met 3 min rustig joggen ertussen",
+      "4x 5 min op 6:10–6:30/km, met 3 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 14, kind: "Lange duurloop", title: "14 km", goal: "Rustig terug op niveau", blocks: [
-      "14 km op 7:00-7:30/km",
+      "14 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 21, dates: "11–17 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 20, dates: "11–17 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Basis groeit", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 9, kind: "Drempeltempo", title: "2x 10 min drempel", goal: "Stevig maar beheerst", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 10 min op 6:10-6:30/km, met 4 min rustig joggen ertussen",
+      "2x 10 min op 6:10–6:30/km, met 4 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 15, kind: "Lange duurloop", title: "15 km", goal: "Zo ver als de Bruggenloop", blocks: [
-      "15 km op 7:00-7:30/km",
+      "15 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 22, dates: "18–24 jan", phase: "Fase 5 · Naar de halve marathon", recovery: true, sessions: [
+  { week: 21, dates: "18–24 jan", phase: "Fase 5 · Naar de halve marathon", recovery: true, sessions: [
     d1({ zone: "herstel", km: 6, kind: "Herstel", title: "Rustige week", goal: "Vierde week, dus lichter", blocks: [
-      "6 km heel rustig op 7:45-8:15/km",
+      "6 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Soepel", goal: "Fris blijven", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d3({ zone: "lang", km: 12, kind: "Lange duurloop", title: "Terugvalweek", goal: "Bijtanken", blocks: [
-      "12 km op 7:00-7:30/km",
+      "12 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 23, dates: "25–31 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 22, dates: "25–31 jan", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Onderhoud", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 9, kind: "Wedstrijdtempo", title: "3x 2 km op tempo", goal: "Tempogevoel terughalen", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35–6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 16, kind: "Lange duurloop", title: "16 km", goal: "Nieuwe opbouw", blocks: [
-      "16 km op 7:00-7:30/km",
+      "16 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 24, dates: "1–7 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 23, dates: "1–7 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Rustig", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 10, kind: "Drempeltempo", title: "2x 15 min drempel", goal: "Lange blokken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 15 min op 6:10-6:30/km, met 5 min rustig joggen ertussen",
+      "2x 15 min op 6:10–6:30/km, met 5 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 17, kind: "Lange duurloop", title: "17 km", goal: "Langste tot nu toe", blocks: [
-      "17 km op 7:00-7:30/km",
+      "17 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 25, dates: "8–14 feb", phase: "Fase 5 · Naar de halve marathon", recovery: true, sessions: [
+  { week: 24, dates: "8–14 feb", phase: "Fase 5 · Naar de halve marathon", recovery: true, sessions: [
     d1({ zone: "herstel", km: 6, kind: "Herstel", title: "Rustige week", goal: "Even helemaal rustig", blocks: [
-      "6 km heel rustig op 7:45-8:15/km",
+      "6 km heel rustig op 7:45–8:15/km",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
     d2({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Met 5 versnellingen", goal: "Soepel", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Daarna 5x 20 sec versnellen, met 1 min wandelen ertussen",
       "Rustig uitlopen",
     ] }),
     d3({ zone: "lang", km: 13, kind: "Lange duurloop", title: "Terugvalweek", goal: "Opladen voor de laatste weken", blocks: [
-      "13 km op 7:00-7:30/km",
+      "13 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 26, dates: "15–21 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 25, dates: "15–21 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Laatste opbouw", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 10, kind: "Wedstrijdtempo", title: "3x 3 km op tempo", goal: "Grotere blokken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 3 km op wedstrijdtempo 6:35-6:45/km, met 4 min joggen ertussen",
+      "3x 3 km op wedstrijdtempo 6:35–6:45/km, met 4 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 18, kind: "Mijlpaal", title: "🎉 18 km", goal: "Verder dan je ooit liep", blocks: [
-      "18 km op 7:00-7:30/km",
+      "18 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 27, dates: "22–28 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
+  { week: 26, dates: "22–28 feb", phase: "Fase 5 · Naar de halve marathon", sessions: [
     d1({ zone: "duur", km: 8, kind: "Rustige duurloop", title: "8 km rustig", goal: "Rustig", blocks: [
-      "8 km op 7:10-7:40/km",
+      "8 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "tempo", km: 11, kind: "Drempeltempo", title: "2x 20 min drempel", goal: "Je laatste zware training", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "2x 20 min op 6:10-6:30/km, met 5 min rustig joggen ertussen",
+      "2x 20 min op 6:10–6:30/km, met 5 min rustig joggen ertussen",
       "Stevig maar beheerst: 2 of 3 woorden moeten nog lukken",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 19, kind: "Mijlpaal", title: "🎉 19 km, bijna de halve", goal: "Nu weet je: de 21,1 gaat lukken", blocks: [
-      "19 km op 7:00-7:30/km",
+      "19 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 28, dates: "1–7 mrt", phase: "Fase 6 · Afbouwen", taper: true, sessions: [
+  { week: 27, dates: "1–7 mrt", phase: "Fase 6 · Afbouwen", taper: true, sessions: [
     d1({ zone: "duur", km: 7, kind: "Rustige duurloop", title: "7 km rustig", goal: "Vanaf nu spaar je energie", blocks: [
-      "7 km op 7:10-7:40/km",
+      "7 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "doel", km: 8, kind: "Wedstrijdtempo", title: "3x 2 km op tempo", goal: "Scherp maken, niet moe maken", blocks: [
       "1,5 km inlopen op 7:30/km",
-      "3x 2 km op wedstrijdtempo 6:35-6:45/km, met 3 min joggen ertussen",
+      "3x 2 km op wedstrijdtempo 6:35–6:45/km, met 3 min joggen ertussen",
       "Dit is het tempo van de Bruggenloop, voel hoe het zit",
       "1 km uitlopen",
     ] }),
     d3({ zone: "lang", km: 14, kind: "Lange duurloop", title: "14 km, afbouwen", goal: "Laatste lange loop", blocks: [
-      "14 km op 7:00-7:30/km",
+      "14 km op 7:00–7:30/km",
       "Rustig starten, gelijkmatig blijven",
       "Neem drinken mee vanaf ongeveer 90 minuten",
       "Laatste kilometer lekker uitlopen",
     ] }),
   ]},
-  { week: 29, dates: "8–14 mrt", phase: "Fase 7 · Raceweek", race: true, raceLabel: "🏅 Doelrace · halve marathon", sessions: [
+  { week: 28, dates: "8–14 mrt", phase: "Fase 7 · Raceweek", race: true, raceLabel: "🏅 Doelrace · halve marathon", sessions: [
     d1({ zone: "duur", km: 6, kind: "Rustige duurloop", title: "Losmaken", goal: "Kort en rustig", blocks: [
-      "6 km op 7:10-7:40/km",
+      "6 km op 7:10–7:40/km",
       "Praattempo: je kunt een hele zin uitspreken",
       "Rustig uitlopen en even losmaken",
     ] }),
     d2({ zone: "herstel", km: 4, kind: "Herstel", title: "Kort met 3 versnellingen", goal: "Scherp en uitgerust naar zondag", blocks: [
-      "4 km heel rustig op 7:45-8:15/km",
+      "4 km heel rustig op 7:45–8:15/km",
       "3x 20 sec versnellen, met ruim wandelen ertussen",
       "Bewust makkelijk, dit is een cadeautje aan je benen",
     ] }),
@@ -682,7 +665,7 @@ const INFO = [
   ]},
   { icon: "🏁", title: "De Bruggenloop, 15 km", items: [
     "13 december 2026. Vijftien kilometer over de Rotterdamse bruggen.",
-    "Voor 1:40 loop je 6:35-6:45 per km. Dat oefen je in week 10, 13, 15 en 16.",
+    "Voor 1:40 loop je 6:35–6:45 per km. Dat oefen je in week 10, 13, 15 en 16.",
     "Start bewust rustiger dan je wilt, rond 6:50 tot 7:00 per km. Iedereen vertrekt te hard.",
     "De bruggen zijn de enige echte klim. Rustiger omhoog, en laat je gewoon lopen omlaag.",
     "December betekent kou. Kleed je in laagjes en trek iets uit wat je bij de start kunt weggooien.",
@@ -1664,4 +1647,13 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     window.location.reload();
   });
   navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+
+/* Vraag de browser om je voortgang echt te bewaren. Zonder dit mag een
+   browser opgeslagen gegevens opruimen als er ruimte nodig is, en dan ben
+   je je afgevinkte trainingen kwijt. */
+if (navigator.storage && navigator.storage.persist) {
+  navigator.storage.persisted()
+    .then((al) => (al ? true : navigator.storage.persist()))
+    .catch(() => {});
 }
