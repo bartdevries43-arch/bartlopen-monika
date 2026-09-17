@@ -1,10 +1,10 @@
 /* Eenvoudige offline-cache voor Run Coach. Verhoog CACHE bij elke update. */
-const CACHE = "runcoach-monika-v1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec";
+const CACHE = "runcoach-monika-v1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec-smal";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec",
-  "./app.js?v=1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec",
+  "./styles.css?v=1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec-smal",
+  "./app.js?v=1-m2-bugfix-schuifmelding-weeklater-opslag-koppen-rec-smal",
   "./coach.jpg",
   "./icon-192.png",
   "./icon-512.png",
